@@ -24,9 +24,10 @@ with open (file_to_load) as election_data:
         if candidate_name not in candidate_options:
             candidate_options.append(candidate_name)
             candidate_votes[candidate_name]= 0 
-            candidate_votes[candidate_name] += 1
+        candidate_votes[candidate_name] += 1
 
+    for candidate_name in candidate_votes:
+        votes = candidate_votes[candidate_name]
+        vote_percentage = float(votes)/float(total_votes) *100
 
-
-print (candidate_votes)
-    
+        print (f"{candidate_name}: recieved {round(vote_percentage,1)}% of the vote")
