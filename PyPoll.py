@@ -10,6 +10,7 @@ candidate_options = []
 
 candidate_votes = {}
 
+win_count = 0 
 
 
 with open (file_to_load) as election_data:
@@ -31,3 +32,14 @@ with open (file_to_load) as election_data:
         vote_percentage = float(votes)/float(total_votes) *100
 
         print (f"{candidate_name}: recieved {round(vote_percentage,1)}% of the vote")
+
+        if vote_percentage > win_count: 
+            win_count = vote_percentage
+            win_name = candidate_name
+    
+    print (f"{win_name} is the winner with {round(win_count,1)} % of the votes")
+
+    print (win_count)
+    print (win_name)
+
+    
